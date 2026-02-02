@@ -1,0 +1,119 @@
+/* Body and Container */
+body {
+  background: linear-gradient(135deg, #7f00ff, #e100ff);
+  font-family: "Segoe UI", sans-serif;
+  text-align: center;
+  color: white;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden; /* keep hearts inside */
+}
+
+.container {
+  padding-top: 80px;
+}
+
+h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+  animation: none; /* stop bouncing */
+}
+
+.question {
+  font-size: 22px;
+  margin-bottom: 30px;
+  animation: pulse 1.5s infinite; /* question pulses */
+}
+
+/* Buttons container */
+.buttons {
+  display: flex;               /* side by side */
+  justify-content: center;     /* center horizontally */
+  align-items: center;         /* vertical alignment */
+  gap: 20px;                   /* space between buttons */
+  position: relative;
+  height: 60px;
+}
+
+/* YES Button */
+#yesBtn {
+  background-color: #ff77cd;
+  color: #4b004b;
+  padding: 14px 30px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;         /* emoji stays inline */
+  transition: transform 0.2s;
+}
+
+#yesBtn:hover {
+  transform: scale(1.2);       /* pop effect */
+}
+
+/* NO Button */
+#noBtn {
+  background-color: #dddddd;
+  color: #333;
+  padding: 14px 30px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;         /* emoji stays inline */
+  position: relative;          /* stay in flex layout */
+  transition: transform 0.2s;  /* smooth jump */
+}
+
+/* Result section */
+#result {
+  margin-top: 40px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+#result img {
+  width: 260px;
+  margin-top: 20px;
+  border-radius: 20px;
+}
+
+.final-line {
+  margin-top: 15px;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Pulse animation for question */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Fade in for result */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Heart Animation */
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #ff77cd;
+  clip-path: polygon(
+    50% 0%, 61% 12%, 75% 12%, 85% 25%, 90% 38%,
+    90% 50%, 50% 100%, 10% 50%, 10% 38%, 15% 25%,
+    25% 12%, 39% 12%
+  );
+  opacity: 0.8;
+  animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(1); opacity: 0.8; }
+  100% { transform: translateY(-400px) scale(0.5); opacity: 0; }
+}
